@@ -16,6 +16,25 @@ I will add to this module as I need more features and I hope you will too, pull 
 
 ## Usage
 
+Include the module
+
+```javascript
+var Progress = require('react-native-animated-progress-bar');
+```
+
+Set the the progress, values should be 0.0 to 1.0.
+Set the styles, optional.
+
+```javascript
+  <ProgressBar
+    progress={this.state.progress}
+    backgroundStyle={{backgroundColor: "#EEE"}}
+    progressStyle={{backgroundColor: "blue"}}
+    incompleteStyle={{backgroundColor: "white"}} />
+```
+
+## Full Example
+
 ```javascript
 'use strict';
 
@@ -47,10 +66,10 @@ var ProgressBar = React.createClass({
           Welcome to React Native Progress Bar!
         </Text>
         <ProgressBar
-            progress={this.state.progress}
-            backgroundStyle={{backgroundColor: "#EEE"}}
-            progressStyle={{backgroundColor: "blue"}}
-            incompleteStyle={{backgroundColor: "white"}} />
+          progress={this.state.progress}
+          backgroundStyle={{backgroundColor: "#EEE"}}
+          progressStyle={{backgroundColor: "blue"}}
+          incompleteStyle={{backgroundColor: "white"}} />
       </View>
     );
   }
