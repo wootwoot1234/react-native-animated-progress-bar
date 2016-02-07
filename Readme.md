@@ -1,4 +1,4 @@
-# react-native-progress  [![NPM version](https://img.shields.io/npm/v/react-native-progress.svg?style=flat-square)](https://www.npmjs.com/package/react-native-progress)
+# react-native-animated-progress-bar  [![NPM version](https://img.shields.io/npm/v/react-native-animated-progress-bar.svg?style=flat-square)](https://www.npmjs.com/package/react-native-animated-progress-bar)
 
 An animated progress bar for React Native.
 
@@ -12,7 +12,7 @@ I will add to this module as I need more features and I hope you will too, pull 
 
 ## Getting started
 
-1. `npm install react-native-progress --save`
+1. `npm install --save react-native-animated-progress-bar`
 
 ## Usage
 
@@ -20,7 +20,7 @@ I will add to this module as I need more features and I hope you will too, pull 
 'use strict';
 
 var React = require('react-native');
-var Progress = require('react-native-progress');
+var Progress = require('react-native-animated-progress-bar');
 
 var {
   AppRegistry,
