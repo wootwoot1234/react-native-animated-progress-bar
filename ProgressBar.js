@@ -1,20 +1,26 @@
 'use strict';
 
-var React = require('react-native');
-var {
+import React from 'react';
+import {
     StyleSheet,
     Text,
     View,
     Animated,
     Easing,
-} = React;
+} from 'react-native';
 
 class ProgressBar extends React.Component {
     constructor(props) {
         super(props);
+        var percentage = 0;
+        var incompletePercentage = 100;
+        if(this.props.progress) {
+            percentage = this.props.progress * 100;
+            incompletePercentage = Math.abs(percentage - 100);
+        }
         this.state = {
-            percentage: new Animated.Value(0),
-            incompletePercentage: new Animated.Value(100),
+            percentage: new Animated.Value(percentage),
+            incompletePercentage: new Animated.Value(incompletePercentage),
         };
     }
 
