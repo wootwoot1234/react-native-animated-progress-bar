@@ -12,22 +12,22 @@ import {
 class ProgressBar extends React.Component {
     constructor(props) {
         super(props);
-        var percentage = 0;
-        var incompletePercentage = 100;
-        if(this.props.progress) {
-            percentage = this.props.progress * 100;
-            incompletePercentage = Math.abs(percentage - 100);
-        }
         this.state = {
-            percentage: new Animated.Value(percentage),
-            incompletePercentage: new Animated.Value(incompletePercentage),
+            percentage: new Animated.Value(0),
+            incompletePercentage: new Animated.Value(100),
         };
     }
 
-    componentWillReceiveProps(newProps) {
-        var percentage = newProps.progress * 100;
-        var incompletePercentage = Math.abs(percentage - 100);
+    componentDidMount() {
+        this.update(this.props.progress);
+    }
 
+    componentWillReceiveProps(newProps) {
+        this.update(newProps.progress);
+    }
+    update(progress) {
+        var percentage = progress * 100;
+        var incompletePercentage = Math.abs(percentage - 100);
         Animated.timing(this.state.percentage, {
             easing: Easing.inOut(Easing.ease),
             duration: 500,
@@ -38,6 +38,7 @@ class ProgressBar extends React.Component {
             duration: 500,
             toValue: incompletePercentage
         }).start();
+
     }
     render () {
         var interpolatedPercentage = this.state.percentage.interpolate({
